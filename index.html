@@ -10,26 +10,24 @@
   <body>
 
     <div id="vue-app">
-      <h1>Looping with v-for</h1>
-      <ul>
-        <li v-for="character in characters">{{ character }}</li>
-      </ul>
-      <ul>
-        <li v-for="(ninja, index) in ninjas">{{ index }} . {{ ninja.name }} - {{ ninja.age }}</li>
-      </ul>
-      <!-- Template does not create new elements like div does -->
-      <template v-for="(ninja, index) in ninjas">
-        <h3>{{ index }}. {{ ninja.name }}</h3>
-        <p>{{ ninja.name }}</p>
-      </template>
+      <!-- bag image -->
+      <div id="bag" v-bind:class="{burst: ended}">
 
-      <template v-for="ninja in ninjas">
-        <div v-for="(val,key) in ninja">
-          <p>{{ key }} - {{ val }}</p>
+      </div>
+
+      <!-- bag health -->
+      <div id="bag-health">
+        <div v-bind:style="{width : health + '%'}">
+
         </div>
-      </template>
+      </div>
 
+      <!-- game controls -->
+      <div id="controls">
+        <button v-on:click="punch()" v-show="!ended">Punch</button>
+        <button v-on:click="restart()">Restart</button>
 
+      </div>
     </div>
 
     <script src="app.js"></script>
